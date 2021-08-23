@@ -2,6 +2,7 @@ package com.github.requestpluginsforfree.dependency.registry;
 
 import com.github.requestpluginsforfree.dependency.Dependency;
 import com.github.requestpluginsforfree.dependency.impl.PlaceholderDependency;
+import com.github.requestpluginsforfree.dependency.impl.VaultDependency;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
@@ -13,6 +14,7 @@ public class DependencyAPI {
     private static final List<Dependency<?>> dependencies = new ArrayList<>();
     static {
         register(new PlaceholderDependency());
+        register(new VaultDependency());
     }
 
     public static void initialize(final Plugin instance){
