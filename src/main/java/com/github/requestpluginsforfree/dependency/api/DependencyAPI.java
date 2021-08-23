@@ -1,4 +1,4 @@
-package com.github.requestpluginsforfree.dependency.registry;
+package com.github.requestpluginsforfree.dependency.api;
 
 import com.github.requestpluginsforfree.dependency.Dependency;
 import com.github.requestpluginsforfree.dependency.impl.PlaceholderDependency;
