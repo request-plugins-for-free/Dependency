@@ -5,10 +5,7 @@ import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
-public class VaultDependency implements Dependency<Economy> {
-    private boolean available;
-    private Economy economy;
-
+public class VaultDependency extends Dependency<Economy> {
     /**
      * @return the plugin identifier
      */
@@ -17,40 +14,11 @@ public class VaultDependency implements Dependency<Economy> {
         return "Vault";
     }
 
-    /**
-     * @return if the plugin is available
-     */
     @Override
-    public boolean isAvailable() {
-        return this.available;
-    }
-
-    /**
-     * @param available set the field available
-     */
-    @Override
-    public void available(final boolean available) {
-        this.available = available;
-    }
-
-    /**
-     * If DependencyRegistry founds the plugin, it'll execute this method with the plugin instance
-     *
-     * @param plugin plugin instance
-     */
-    @Override
-    public void onAvailable(final Plugin plugin) {
+    public void whenFound(final Plugin mainInstance, final Plugin plugin) {
         RegisteredServiceProvider<Economy> rsp = plugin.getServer().getServicesManager().getRegistration(Economy.class);
         if (rsp == null) return;
-        this.economy = rsp.getProvider();
+        setInstance(rsp.getProvider());
         available(true);
-    }
-
-    /**
-     * @return returns the the plugin class instance if it's found, otherwise false
-     */
-    @Override
-    public Economy get() {
-        return this.economy;
     }
 }

@@ -2,31 +2,51 @@ package com.github.requestpluginsforfree.dependency;
 
 import org.bukkit.plugin.Plugin;
 
-public interface Dependency<T> {
+public abstract class Dependency<T> {
+    private boolean available;
+    private T instance;
+
     /**
      * @return the plugin identifier
      */
-    String identifier();
+    public abstract String identifier();
 
     /**
      * @return if the plugin is available
      */
-    boolean isAvailable();
+    public boolean isAvailable() {
+        return this.available;
+    }
 
     /**
      * @param available set the field available
      */
-    void available(final boolean available);
+    public void available(final boolean available) {
+        this.available = available;
+    }
 
     /**
-     * If DependencyRegistry founds the plugin, it'll execute this method with the plugin instance
+     * If the dependency is found, it'll run this method providing the necessary parameters
      *
-     * @param plugin plugin instance
+     * @param mainInstance the main plugin instance
+     * @param plugin dependency plugin instance
      */
-    void onAvailable(final Plugin plugin);
+    public abstract void whenFound(final Plugin mainInstance, final Plugin plugin);
+
+    /**
+     * @param instance dependency instance
+     *
+     * @return the dependency instance
+     */
+    public T setInstance(final T instance){
+        this.instance = instance;
+        return instance;
+    }
 
     /**
      * @return returns the the plugin class instance if it's found, otherwise false
      */
-    T get();
+    public T getInstance() {
+        return this.instance;
+    }
 }
