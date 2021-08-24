@@ -1,8 +1,6 @@
 package com.github.requestpluginsforfree.dependency.api;
 
 import com.github.requestpluginsforfree.dependency.Dependency;
-import com.github.requestpluginsforfree.dependency.impl.PlaceholderDependency;
-import com.github.requestpluginsforfree.dependency.impl.VaultDependency;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
@@ -12,11 +10,12 @@ import java.util.List;
 
 public class DependencyAPI {
     private static final List<Dependency<?>> dependencies = new ArrayList<>();
-    static {
-        register(new PlaceholderDependency());
-        register(new VaultDependency());
-    }
 
+    /**
+     * This will loop through every dependency registered and if it's available, log it
+     *
+     * @param instance the main plugin instance
+     */
     public static void initialize(final Plugin instance){
         for (final Dependency<?> dependency : dependencies){
             Plugin plugin;
