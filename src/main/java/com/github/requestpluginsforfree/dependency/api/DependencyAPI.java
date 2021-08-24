@@ -19,12 +19,11 @@ public class DependencyAPI {
 
     public static void initialize(final Plugin instance){
         for (final Dependency<?> dependency : dependencies){
-            Plugin plugin = null;
+            Plugin plugin;
             if ((plugin = Bukkit.getPluginManager().getPlugin(dependency.identifier())) == null)
                 continue;
-            dependency.available(true);
             dependency.onAvailable(instance);
-            instance.getLogger().info("Hooked into " + dependency.identifier() + " plugin!");
+            instance.getLogger().info("Hooked into " + plugin.getDescription().getName() + " plugin!");
         }
     }
 

@@ -41,7 +41,9 @@ public class VaultDependency implements Dependency<Economy> {
     @Override
     public void onAvailable(final Plugin plugin) {
         RegisteredServiceProvider<Economy> rsp = plugin.getServer().getServicesManager().getRegistration(Economy.class);
+        if (rsp == null) return;
         this.economy = rsp.getProvider();
+        available(true);
     }
 
     /**
