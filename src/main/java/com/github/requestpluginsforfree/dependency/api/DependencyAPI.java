@@ -23,7 +23,7 @@ public class DependencyAPI {
             if ((plugin = Bukkit.getPluginManager().getPlugin(dependency.identifier())) == null)
                 continue;
             dependency.available(true);
-            dependency.onAvailable(plugin);
+            dependency.onAvailable(instance);
             instance.getLogger().info("Hooked into " + dependency.identifier() + " plugin!");
         }
     }
