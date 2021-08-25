@@ -2,7 +2,7 @@
 You can join our discord here: https://discord.gg/yGkS3Dh
 
 ---
-### Usage Example of Dependency API
+### Usage Example
 ```java
 
 package com.github.requestpluginsforfree.example;
@@ -77,10 +77,4 @@ public class FirstPlugin extends JavaPlugin {
         }
     }
 }
-
-
-
-
-
-
 ```
