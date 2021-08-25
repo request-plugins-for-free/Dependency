@@ -27,7 +27,7 @@ public class FirstPlugin extends JavaPlugin {
          * is not found hence, ruin the whole purpose of this plugin,
          * so be careful.
          */
-        Dependency<?> secondPluginDepend = DependencyAPI.get("secondplugin");
+        final Dependency<?> secondPluginDepend = DependencyAPI.get("secondplugin");
         /*
             Right now, we're checking for both things
 
