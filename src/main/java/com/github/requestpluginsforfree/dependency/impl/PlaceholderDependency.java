@@ -22,5 +22,6 @@ public class PlaceholderDependency extends Dependency<PlaceholderAPIPlugin> {
     @Override
     public void whenFound(final Plugin mainInstance, final Plugin plugin) {
         setInstance((PlaceholderAPIPlugin) plugin);
+        available(true);
     }
 }
