@@ -2,6 +2,25 @@
 You can join our discord here: https://discord.gg/yGkS3Dh
 
 ---
+### Maven
+```xml
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.request-plugins-for-free</groupId>
+            <artifactId>Dependency</artifactId>
+            <version>e53d5faab1</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependency>
+```
+
 ### Usage Example
 ```java
 
