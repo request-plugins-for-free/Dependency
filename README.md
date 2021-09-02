@@ -18,7 +18,7 @@ You can join our discord here: https://discord.gg/yGkS3Dh
             <version>e53d5faab1</version>
             <scope>compile</scope>
         </dependency>
-    </dependency>
+    </dependencies>
 ```
 
 ### Usage Example
